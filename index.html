@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Validator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <form id="form" autocomplete="off" >
+            <h2>Login</h2>
+
+            <div class="field">
+                <input type="text" id="email" placeholder="Enter Email">
+                <small id="emailError" class="error"></small>
+            </div>
+
+            <div class="field">
+                <input type="password" id="password" placeholder="Enter Password">
+                <small id="passwordError" class="error"></small>
+            </div>
+
+            <button type="submit">Submit</button>
+
+            <div id="resultMessage"></div>
+        </form>
+
+    </div>
+    <h2 id="ty">Thank you</h2>
+<script src="script.js"></script>
+</body>
+
+</html>
