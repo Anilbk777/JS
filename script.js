@@ -600,5 +600,11 @@ function isEmpty(value){
 }
 // isEmpty("")
 
+for (let i of [1,2,3,450]){
+    console.log(i)
+}
 
-
+nums = [1,2,3,45,60]
+for (let i in nums){
+    console.log(nums[i])
+}
