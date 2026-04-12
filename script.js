@@ -1,6 +1,6 @@
 // var username = "Anil";
 
-// const { createElement } = require("react");
+
 
 // var a = 12;
 // a = "hello"
@@ -485,89 +485,96 @@
 //     }
 // })
 
-let form = document.querySelector("#form");
-let email = document.querySelector("#email");
-let password = document.querySelector("#password");
-let result = document.querySelector("#resultMessage");
+// let form = document.querySelector("#form");
+// let email = document.querySelector("#email");
+// let password = document.querySelector("#password");
+// let result = document.querySelector("#resultMessage");
 
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/;
-
-
-form.addEventListener("submit",function(evnt){
-    evnt.preventDefault();
-
-     // hide previous result
-    result.style.display = "none";
-
-    document.querySelectorAll(".error").forEach((el) => {
-    el.textContent = "";
-});
-    let emailAns = emailRegex.test(email.value);
-    let passwordAns = passwordRegex.test(password.value);
-    let isValid = true
-
-    if (!emailAns){
-        document.querySelector("#emailError").textContent = "Invalid email"
-        isValid = false
-    }
-    if (!passwordAns){
-        document.querySelector("#passwordError").textContent = "Weak password"
-        isValid = false
-    }
-
-    if (isValid){
-        result.textContent = "Everything is correct.";
-        result.style.display = "block";
-    }
-});
+// const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+// const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/;
 
 
-function clearError(input) {
-    let field = input.parentElement;
-    let error = field.querySelector(".error");
+// form.addEventListener("submit",function(evnt){
+//     evnt.preventDefault();
 
-    error.textContent = "";
-}
+//      // hide previous result
+//     result.style.display = "none";
 
-email.addEventListener("input", function(){
-    if (emailRegex.test(email.value)){
-        clearError(email);
-    }
-});
-password.addEventListener("input", function(){
-    if (passwordRegex.test(password.value)){
-        clearError(password);
-    }
-});
+//     document.querySelectorAll(".error").forEach((el) => {
+//     el.textContent = "";
+// });
+//     let emailAns = emailRegex.test(email.value);
+//     let passwordAns = passwordRegex.test(password.value);
+//     let isValid = true
+
+//     if (!emailAns){
+//         document.querySelector("#emailError").textContent = "Invalid email"
+//         isValid = false
+//     }
+//     if (!passwordAns){
+//         document.querySelector("#passwordError").textContent = "Weak password"
+//         isValid = false
+//     }
+
+//     if (isValid){
+//         result.textContent = "Everything is correct.";
+//         result.style.display = "block";
+//     }
+// });
+
+
+// function clearError(input) {
+//     let field = input.parentElement;
+//     let error = field.querySelector(".error");
+
+//     error.textContent = "";
+// }
+
+// email.addEventListener("input", function(){
+//     if (emailRegex.test(email.value)){
+//         clearError(email);
+//     }
+// });
+// password.addEventListener("input", function(){
+//     if (passwordRegex.test(password.value)){
+//         clearError(password);
+//     }
+// });
 
 
 
 
-// let st = setInterval(() => {
-//     console.log("Hello world");
+// // let st = setInterval(() => {
+// //     console.log("Hello world");
+// // }, 5000);
+
+// // setTimeout(() => {
+// //     clearInterval(st);
+// // }, 20000); // stop after 20 seconds
+
+
+// // let count = 10;
+
+// // let interval = setInterval(function(){
+// //     if (count >=0){
+// //         console.log(count);
+// //         count--;
+// //     }
+// //     else clearInterval(interval);
+// // },1000);
+
+// let container = document.querySelector(".container");
+// let ty = document.querySelector("#ty");
+
+// setTimeout(function(){
+//     container.style.display = "none";
+//     ty.style.display = "block";
+    
 // }, 5000);
 
-// setTimeout(() => {
-//     clearInterval(st);
-// }, 20000); // stop after 20 seconds
+const user = {name:"Anil",age:24}
 
+localStorage.setItem("user",JSON.stringify(user))
+const parsed = JSON.parse(localStorage.getItem("user"))
 
-// let count = 10;
-
-// let interval = setInterval(function(){
-//     if (count >=0){
-//         console.log(count);
-//         count--;
-//     }
-//     else clearInterval(interval);
-// },1000);
-
-let container = document.querySelector(".container");
-let ty = document.querySelector("#ty");
-
-setTimeout(function(){
-    container.style.display = "none";
-    ty.style.display = "block";
-    
-}, 5000);
+console.log(parsed)
