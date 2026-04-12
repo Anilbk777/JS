@@ -572,9 +572,33 @@
     
 // }, 5000);
 
-const user = {name:"Anil",age:24}
+// const user = {name:"Anil",age:24}
 
-localStorage.setItem("user",JSON.stringify(user))
-const parsed = JSON.parse(localStorage.getItem("user"))
+// localStorage.setItem("user",JSON.stringify(user))
+// const parsed = JSON.parse(localStorage.getItem("user"))
 
-console.log(parsed)
+// console.log(parsed)
+
+// 4. Write a function isEmpty(value) that checks if a given value is null , undefined , or "" .
+function isEmpty(value){
+    if (value === null){
+        console.log("Null")
+        return false
+    }
+    else if (value === undefined){
+        console.log("Undefined")
+        return false
+    }
+    else if (value === ""){
+        console.log("Empty string")
+        return false
+    }
+    else{
+        console.log(`Given value is ${value}.`)
+        return true
+    }
+}
+// isEmpty("")
+
+
+
