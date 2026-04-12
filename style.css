@@ -1,86 +1,176 @@
+/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Background */
 body {
-    background: #222;
-    font-family: Arial, sans-serif;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
 }
 
+/* Container */
 .container {
-    background: #333;
-    padding: 30px;
-    border-radius: 10px;
+    text-align: center;
+}
+
+/* Search Box */
+.search-box {
+    position: relative;
+    width: 300px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border-radius: 50px;
+    overflow: visible;
+    transition: all 0.5s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Expand on hover */
+.search-box:hover {
     width: 300px;
 }
 
-h2 {
-    color: white;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.field {
-    margin-bottom: 15px;
-}
-
-input {
+/* Input */
+.search-box input {
     width: 100%;
-    padding: 10px;
-    border: 2px solid #555;
-    border-radius: 5px;
-    outline: none;
-}
-
-input:focus {
-    border-color: #00bcd4;
-}
-
-.error {
-    color: red;
-    font-size: 12px;
-    display: block;
-    margin-top: 5px;
-}
-
-.success input {
-    border-color: green;
-}
-
-.error-field input {
-    border-color: red;
-}
-
-button {
-    width: 100%;
-    padding: 10px;
+    height: 100%;
     border: none;
-    background: #00bcd4;
+    outline: none;
+    padding: 0 60px 0 20px;
+    background: transparent;
     color: white;
-    border-radius: 5px;
+    font-size: 16px;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    cursor: text;
+    position: relative;
+    z-index: 2;
+    pointer-events: auto;
+}
+
+/* Show input when expanded */
+.search-box:hover input,
+.search-box input:focus {
+    opacity: 1;
+}
+
+/* Icon */
+.icon {
+    position: absolute;
+    right: 0;
+    width: 60px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    z-index: 1;
+    pointer-events: none;
+    color: white;
     cursor: pointer;
+    transition: transform 0.4s ease;
 }
 
-button:hover{
-    background-color:#115760 ;
+/* Icon animation */
+.search-box:hover .icon {
+    transform: rotate(360deg) scale(1.2);
 }
 
-#resultMessage{
-    display: none;
-    margin-top: 15px;
-    border: 2px solid #222 ;
-    color: green;
-    border-radius: 5px;
-    text-align: center;
-
+/* Glow effect */
+.search-box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50px;
+    padding: 2px;
+    background: linear-gradient(45deg, #00dbde, #fc00ff);
+    -webkit-mask: linear-gradient(#000 0 0) content-box,
+                linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s;
 }
 
-#ty{
-    display: none;
+/* Show glow on hover */
+.search-box:hover::before {
+    opacity: 1;
+}
+
+/* Placeholder style */
+::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Users Container */
+.users-container {
+    margin-top: 40px;
+    max-height: 70vh;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+}
+
+#usersList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+/* User Card */
+.user-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.user-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+}
+
+/* User Picture */
+.user-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.user-card:hover .user-pic {
+    transform: scale(1.1);
+}
+
+/* User Name */
+.user-name {
+    color: white;
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/* User Bio */
+.user-bio {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    line-height: 1.5;
 }
