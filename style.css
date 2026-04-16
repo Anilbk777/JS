@@ -181,6 +181,7 @@ text-transform: uppercase;
 }
 #about img{
     width: 200px;
+    border-radius: 50%;
 }
 #about-text{
     width: 25rem;

@@ -44,15 +44,24 @@ document.querySelectorAll(".elem").forEach(function(elem){
     let rotate = 0
     let diffrot = 0
     
-    elem.addEventListener("mouseenter", ()=>{
+    elem.addEventListener("mouseenter", (e)=>{
+        let diff = e.clientY - elem.getBoundingClientRect().top
         gsap.to(elem.querySelector("img"),{
             opacity:1,
+            top: diff - 175,
+            left: e.clientX - 175,
             duration: 0.3
         })
     })
     
     elem.addEventListener("mousemove", (dets)=>{
         let diff =  dets.clientY - elem.getBoundingClientRect().top
+        
+        gsap.to(elem.querySelector("h1"),{
+            opacity:0.3,
+            x:30,
+            duration:0.3
+        })
 
         diffrot = dets.clientX - rotate
         rotate = dets.clientX
@@ -66,6 +75,12 @@ document.querySelectorAll(".elem").forEach(function(elem){
     })
     
     elem.addEventListener("mouseleave", ()=>{
+        gsap.to(elem.querySelector("h1"),{
+            opacity:0.7,
+            x:0,
+            duration:0.3
+        })
+
         gsap.to(elem.querySelector("img"),{
             opacity:0,
             duration: 0.5
