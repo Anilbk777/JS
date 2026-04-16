@@ -38,3 +38,37 @@ function circleMouseFollower(){
     })
 }
 circleMouseFollower()
+
+
+document.querySelectorAll(".elem").forEach(function(elem){
+    let rotate = 0
+    let diffrot = 0
+    
+    elem.addEventListener("mouseenter", ()=>{
+        gsap.to(elem.querySelector("img"),{
+            opacity:1,
+            duration: 0.3
+        })
+    })
+    
+    elem.addEventListener("mousemove", (dets)=>{
+        let diff =  dets.clientY - elem.getBoundingClientRect().top
+
+        diffrot = dets.clientX - rotate
+        rotate = dets.clientX
+        gsap.to(elem.querySelector("img"),{
+            ease:"power1.out",
+            top:diff - 175,
+            left : dets.clientX - 175,
+            duration: 0.5,
+            rotate:gsap.utils.clamp(-20, 20, diffrot)
+        })
+    })
+    
+    elem.addEventListener("mouseleave", ()=>{
+        gsap.to(elem.querySelector("img"),{
+            opacity:0,
+            duration: 0.5
+        })
+    })
+})
