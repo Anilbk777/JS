@@ -134,3 +134,37 @@ text-transform: uppercase;
     position: absolute;
 
 }
+
+#about{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    width: 100%;
+    background-color: black;
+    padding: 10vw;
+    padding-left: 30vw;
+}
+#about img{
+    width: 200px;
+}
+#about-text{
+    width: 25rem;
+}
+
+#about-text h5{
+    opacity: .5;
+    margin-bottom: 10px;
+}
+#about-text p{
+    line-height: 1.7;
+    margin-bottom: 19px;
+}
+
+#about-text a{
+    padding: 6px 22px;
+    border: 1px solid white;
+    border-radius: 100px;
+    text-decoration: none;
+    color: #fff;
+}
