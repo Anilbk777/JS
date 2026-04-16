@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll/bundled/locomotive-scroll.css" /> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll/bundled/locomotive-scroll.css" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="mini-circle"></div>
     <div id="main" data-scroll-container>
         <div id="hero">
             <div id="nav">
@@ -16,16 +17,33 @@
                 <h4>MENU+</h4>
             </div>
             <div id="heading">
-                <h1>PRODUCT</h1>
+                <div class="bounding">
+
+                    <h1 class="boundingelem">PRODUCT</h1>
+                </div>
                 <div class="blocktext">
-                    <h1 id="secondh1">DESIGNER</h1>
-                    <h5>BASED ON TORONTO</h5>
+                    <div class="bounding">
+                        <h1 class="boundingelem" id="secondh1">DESIGNER</h1>
+
+                    </div>
+
+                    <div class="bounding">
+
+                        <h5 class="boundingelem">BASED ON TORONTO</h5>
+                    </div>
                 </div>
 
             </div>
             <div id="small-heading">
-                <h5>Available for Full Time & Freelance</h5>
-                <h5>work from Sep ‘24</h5>
+                <div class="bounding">
+
+                    <h5 class="boundingelem">Available for Full Time & Freelance</h5>
+                </div>
+
+                <div class="bounding">
+
+                    <h5 class="boundingelem">work from Sep ‘24</h5>
+                </div>
             </div>
             <div id="hero-footer">
                 <a href="#">Previously worked at 
@@ -90,6 +108,8 @@
         </div>
     </div>
 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
     <script src="script.js"></script>
